@@ -17,6 +17,7 @@ class AppThemes {
   );
 
   static final ThemeData darkTheme = ThemeData(
+    scaffoldBackgroundColor: Colors.transparent,
     brightness: Brightness.dark,
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primaryColor,
@@ -24,4 +25,23 @@ class AppThemes {
     ),
     textTheme: ThemeData.dark().textTheme,
   );
+}
+
+class CustomLinearColor extends StatelessWidget {
+  const CustomLinearColor({super.key, required this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [AppColors.primaryColor, AppColors.secondaryColor],
+          begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
+        ),
+      ),
+      child: child,
+    );
+  }
 }

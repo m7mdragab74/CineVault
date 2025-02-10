@@ -14,72 +14,68 @@ class SplashView extends StatefulWidget {
 
 class _SplashViewState extends State<SplashView>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _scaleAnimation;
-  late Animation<double> _glowAnimation;
+  late AnimationController animationController;
+  late Animation<double> scaleAnimation;
   @override
   void initState() {
     super.initState();
+    initSlideAnimation();
+    navigateToHome();
+    initScaleAnimation();
+  }
 
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    )..forward();
-
-    _scaleAnimation =
-        Tween<double>(begin: 0.7, end: 1.2).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInOut,
-    ));
-
-    _glowAnimation =
-        Tween<double>(begin: 0.0, end: 5.0).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInOut,
-    ));
-
-    Future.delayed(
-      const Duration(seconds: 3),
-      () {
-        context.go(AppRoutes.home);
-      },
-    );
+  void dispose() {
+    super.dispose();
+    animationController.dispose();
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryColor,
-      body: Center(
-          child: AnimatedBuilder(
-        animation: _controller,
-        builder: (context, child) {
-          return Container(
-            height: 200.h,
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.6),
-                  blurRadius: _glowAnimation.value,
-                  spreadRadius: _glowAnimation.value,
-                ),
-              ],
+      backgroundColor: Colors.transparent,
+      body: Container(
+        width: MediaQuery.sizeOf(context).width,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [AppColors.primaryColor, AppColors.secondaryColor],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+          ),
+        ),
+        child: Center(
+          child: ScaleTransition(
+            scale: scaleAnimation,
+            child: Image.asset(
+              AppImages.logo,
+              width: 269.w,
+              height: 269.h,
             ),
-            child: Transform.scale(
-              scale: _scaleAnimation.value,
-              child: Image.asset(
-                AppImages.logo,
-                fit: BoxFit.contain,
-              ),
-            ),
-          );
-        },
-      )),
+          ),
+        ),
+      ),
     );
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
+  void navigateToHome() {
+    Future.delayed(
+      const Duration(seconds: 2),
+      () {
+        GoRouter.of(context).push(AppRoutes.onBoarding);
+      },
+    );
+  }
+
+  void initSlideAnimation() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    )..forward();
+  }
+
+  void initScaleAnimation() {
+    scaleAnimation =
+        Tween<double>(begin: 0.7, end: 1.2).animate(CurvedAnimation(
+      parent: animationController,
+      curve: Curves.easeInOut,
+    ));
   }
 }
