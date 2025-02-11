@@ -39,6 +39,7 @@ class OnboardingBody extends StatelessWidget {
             flex: 1,
           ),
           CustomAppBottomWidget(
+            label: 'Continue',
             onTap: () => context.push(AppRoutes.login),
           ),
           SizedBox(height: 30.h),

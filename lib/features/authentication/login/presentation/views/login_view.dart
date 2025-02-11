@@ -8,16 +8,11 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return isDarkMode
-        ? const CustomLinearColor(
-            child: Scaffold(
-              backgroundColor: Colors.transparent,
-              body: LoginBody(),
-            ),
-          )
-        : const Scaffold(
-            body: LoginBody(),
-          );
+    return const CustomLinearColor(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: LoginBody(),
+      ),
+    );
   }
 }

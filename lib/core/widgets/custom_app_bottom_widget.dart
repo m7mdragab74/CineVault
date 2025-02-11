@@ -7,9 +7,10 @@ class CustomAppBottomWidget extends StatelessWidget {
   const CustomAppBottomWidget({
     super.key,
     this.onTap,
+    required this.label,
   });
   final void Function()? onTap;
-
+  final String label;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -23,7 +24,7 @@ class CustomAppBottomWidget extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            'Continue',
+            label,
             textAlign: TextAlign.center,
             style: FontStyles.textStyle18.copyWith(fontWeight: FontWeight.bold),
           ),
