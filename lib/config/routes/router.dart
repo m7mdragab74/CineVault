@@ -1,4 +1,6 @@
 import 'package:cine_vault/config/routes/routes.dart';
+import 'package:cine_vault/features/authentication/forget_password/presentation/views/code_verification_view.dart';
+import 'package:cine_vault/features/authentication/forget_password/presentation/views/created_new_password_view.dart';
 import 'package:cine_vault/features/authentication/forget_password/presentation/views/find_your_account.dart';
 import 'package:cine_vault/features/authentication/login/presentation/views/login_view.dart';
 import 'package:cine_vault/features/authentication/register/presentation/views/register_view.dart';
@@ -33,6 +35,18 @@ class AppRouter {
         path: AppRoutes.findYourAccount,
         builder: (context, state) {
           return const FindYourAccountView();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.createdNewPassword,
+        builder: (context, state) {
+          return const CreatedNewPasswordView();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.codeVerification,
+        builder: (context, state) {
+          return const CodeVerificationView();
         },
       ),
       GoRoute(
