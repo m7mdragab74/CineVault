@@ -1,10 +1,16 @@
-import 'package:cine_vault/core/constants/colors.dart';
+import 'package:cine_vault/config/routes/routes.dart';
 import 'package:cine_vault/core/constants/images.dart';
 import 'package:cine_vault/core/utils/font_styles.dart';
 import 'package:cine_vault/core/widgets/custom_app_bottom_widget.dart';
 import 'package:cine_vault/core/widgets/custom_form_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+
+import 'custom_divider_sign_up_with.dart';
+import 'forget_password_widget.dart';
+import 'have_account.dart';
+import 'sign_up_option.dart';
 
 class LoginBody extends StatelessWidget {
   const LoginBody({super.key});
@@ -43,62 +49,46 @@ class LoginBody extends StatelessWidget {
           onChange: (data) {},
         ),
         SizedBox(height: 2.h),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Checkbox(
-              value: false,
-              onChanged: (context) {},
-              activeColor: AppColors.containerColor,
-            ),
-            Text('Remember me', style: FontStyles.textStyle12),
-            const Spacer(),
-            GestureDetector(
-              onTap: () {},
-              child: Text(
-                'Forgot Password?',
-                textAlign: TextAlign.right,
-                style: FontStyles.textStyle16.copyWith(
-                  color: AppColors.containerColor,
-                  fontSize: 15.sp,
-                ),
-              ),
-            ),
-          ],
+        ForgetPasswordWidget(
+          onTap: () {
+            context.push(AppRoutes.findYourAccount);
+          },
+          onChangedCheckBox: (data) {},
         ),
         SizedBox(height: 20.h),
         CustomAppBottomWidget(
           label: 'Login',
-          onTap: () {},
+          onTap: () {
+            context.push(AppRoutes.home);
+          },
         ),
+        SizedBox(height: 20.h),
+        const CustomDividerSignUpWith(),
         SizedBox(height: 20.h),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-              child: Divider(
-                color: AppColors.containerColor,
-                thickness: 1.w,
-                indent: 40.w,
-                endIndent: 4.w,
-              ),
+            SignUpOptions(
+              image: AppImages.apple,
+              onTap: () {},
             ),
-            Text(
-              'Or Sign up with',
-              style: FontStyles.textStyle16.copyWith(
-                color: AppColors.containerColor,
-                fontSize: 14.sp,
-              ),
+            SizedBox(width: 20.w),
+            SignUpOptions(
+              image: AppImages.google,
+              onTap: () {},
             ),
-            Expanded(
-              child: Divider(
-                color: AppColors.containerColor,
-                thickness: 1.w,
-                indent: 4.w,
-                endIndent: 40.w,
-              ),
+            SizedBox(width: 20.w),
+            SignUpOptions(
+              image: AppImages.facebook,
+              onTap: () {},
             ),
           ],
+        ),
+        SizedBox(height: 20.h),
+        HaveAccount(
+          onTap: () {
+            context.push(AppRoutes.register);
+          },
         ),
       ],
     );
