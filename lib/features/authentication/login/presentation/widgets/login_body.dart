@@ -86,6 +86,8 @@ class LoginBody extends StatelessWidget {
         ),
         SizedBox(height: 20.h),
         HaveAccount(
+          text: 'Don\'t have an account?',
+          label: 'Sign up',
           onTap: () {
             context.push(AppRoutes.register);
           },

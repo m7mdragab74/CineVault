@@ -7,15 +7,19 @@ class HaveAccount extends StatelessWidget {
   const HaveAccount({
     super.key,
     this.onTap,
+    required this.text,
+    required this.label,
   });
   final void Function()? onTap;
+  final String text;
+  final String label;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Don\'t have an account? ',
+          text,
           style: FontStyles.textStyle12,
         ),
         SizedBox(width: 5.w),
@@ -28,7 +32,7 @@ class HaveAccount extends StatelessWidget {
         GestureDetector(
           onTap: onTap,
           child: Text(
-            'Sign up',
+            label,
             style: FontStyles.textStyle16.copyWith(
               color: AppColors.containerColor,
             ),
