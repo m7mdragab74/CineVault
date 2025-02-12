@@ -1,5 +1,5 @@
-import 'package:cine_vault/core/constants/colors.dart';
 import 'package:cine_vault/core/utils/font_styles.dart';
+import 'package:cine_vault/features/home/presentation/widgets/custom_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,9 +29,13 @@ class HomeViewBody extends StatelessWidget {
                   'Top Rated',
                   style: FontStyles.textStyle18,
                 ),
+                SizedBox(height: 20.h),
               ],
             ),
           ),
+        ),
+        const SliverToBoxAdapter(
+          child: CustomPageView(),
         ),
       ],
     );

@@ -11,9 +11,13 @@ class HomeView extends StatelessWidget {
 
     return isDarkMode
         ? const CustomLinearColor(
-            child: HomeViewBody(),
+            child: Scaffold(
+              backgroundColor: Colors.transparent,
+              body: HomeViewBody(),
+            ),
           )
         : const Scaffold(
+            backgroundColor: Colors.transparent,
             body: HomeViewBody(),
           );
   }
