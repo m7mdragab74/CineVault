@@ -1,20 +1,20 @@
 import 'package:cine_vault/config/themes/themes.dart';
 import 'package:cine_vault/core/widgets/custom_nav_bar.dart';
+import 'package:cine_vault/features/home/presentation/views/home_view.dart';
 import 'package:cine_vault/features/home/presentation/views/watch_list_view.dart';
-import 'package:cine_vault/features/home/presentation/widgets/home_view_body.dart';
-import 'package:cine_vault/features/profile/presentation/views/profile_view.dart';
+import 'package:cine_vault/features/profile/presentation/widgets/profile_view_body.dart';
 import 'package:cine_vault/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class ProfileView extends StatefulWidget {
+  const ProfileView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<ProfileView> createState() => _ProfileViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
-  int _selectedIndex = 0;
+class _ProfileViewState extends State<ProfileView> {
+  int _selectedIndex = 3;
 
   @override
   Widget build(BuildContext context) {
@@ -39,27 +39,12 @@ class _HomeViewState extends State<HomeView> {
                 },
               ),
               backgroundColor: Colors.transparent,
-              body: HomeViewBody(),
+              body: ProfileViewBody(),
             ),
           )
-        : Scaffold(
-            bottomNavigationBar: CustomNavBar(
-              pages: [
-                HomeView(),
-                SearchView(),
-                WatchListView(),
-                ProfileView(),
-              ],
-              color: Colors.transparent,
-              selectedIndex: _selectedIndex,
-              onItemSelected: (value) {
-                setState(() {
-                  _selectedIndex = value;
-                });
-              },
-            ),
+        : const Scaffold(
             backgroundColor: Colors.transparent,
-            body: HomeViewBody(),
+            body: ProfileViewBody(),
           );
   }
 }

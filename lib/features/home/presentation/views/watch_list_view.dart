@@ -1,20 +1,21 @@
 import 'package:cine_vault/config/themes/themes.dart';
 import 'package:cine_vault/core/widgets/custom_nav_bar.dart';
-import 'package:cine_vault/features/home/presentation/views/watch_list_view.dart';
-import 'package:cine_vault/features/home/presentation/widgets/home_view_body.dart';
+import 'package:cine_vault/features/home/presentation/widgets/watch_list_view_body.dart';
 import 'package:cine_vault/features/profile/presentation/views/profile_view.dart';
-import 'package:cine_vault/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+import '../../../search/presentation/views/search_view.dart';
+import 'home_view.dart';
+
+class WatchListView extends StatefulWidget {
+  const WatchListView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<WatchListView> createState() => _WatchListViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
-  int _selectedIndex = 0;
+class _WatchListViewState extends State<WatchListView> {
+  int _selectedIndex = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
                 },
               ),
               backgroundColor: Colors.transparent,
-              body: HomeViewBody(),
+              body: WatchListViewBody(),
             ),
           )
         : Scaffold(
@@ -59,7 +60,7 @@ class _HomeViewState extends State<HomeView> {
               },
             ),
             backgroundColor: Colors.transparent,
-            body: HomeViewBody(),
+            body: WatchListViewBody(),
           );
   }
 }

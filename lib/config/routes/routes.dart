@@ -10,4 +10,9 @@ class AppRoutes {
   static const String codeVerification = '/codeVerification';
   //home
   static const String home = '/home';
+  static const String watchList = '/watchList';
+  //profile
+  static const String profile = '/profile';
+  //search
+  static const String search = '/search';
 }
