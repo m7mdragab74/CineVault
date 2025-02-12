@@ -5,4 +5,5 @@ class AppImages {
   static const String google = '$_base/logo/google.svg';
   static const String apple = '$_base/logo/apple.svg';
   static const String codeVerification = '$_base/mobileEncryptionCuate.png';
+  static const String homeHead = '$_base/home.png';
 }

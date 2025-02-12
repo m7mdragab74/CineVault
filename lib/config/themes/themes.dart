@@ -14,6 +14,7 @@ class AppThemes {
       scrolledUnderElevation: 0,
       elevation: 0,
     ),
+    textTheme: ThemeData.light().textTheme,
   );
 
   static final ThemeData darkTheme = ThemeData(
@@ -22,6 +23,12 @@ class AppThemes {
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primaryColor,
       brightness: Brightness.dark,
+    ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.transparent,
+      foregroundColor: Colors.white,
+      scrolledUnderElevation: 0,
+      elevation: 0,
     ),
     textTheme: ThemeData.dark().textTheme,
   );

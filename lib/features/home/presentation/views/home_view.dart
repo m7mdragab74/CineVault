@@ -1,3 +1,5 @@
+import 'package:cine_vault/config/themes/themes.dart';
+import 'package:cine_vault/features/home/presentation/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -5,6 +7,14 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+    return isDarkMode
+        ? const CustomLinearColor(
+            child: HomeViewBody(),
+          )
+        : const Scaffold(
+            body: HomeViewBody(),
+          );
   }
 }
