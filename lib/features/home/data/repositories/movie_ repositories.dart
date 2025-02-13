@@ -18,10 +18,11 @@ class MovieRepositoryImpl implements MovieRepository {
   Future<Either<Failure, List<MovieModel>>> getMovies() async {
     try {
       final response = await apiService.fetchMovies();
-      final List<MovieModel> movies = (response['items'] as List)
-          .cast<Map<String, dynamic>>()
-          .map(MovieModel.fromJson)
-          .toList();
+      final List<MovieModel> movies = [];
+
+      for (var movie in response) {
+        movies.add(MovieModel.fromJson(movie));
+      }
 
       return right(movies);
     } catch (e) {
