@@ -1,11 +1,5 @@
-import 'dart:convert';
-
-MovieModel welcomeFromJson(String str) => MovieModel.fromJson(json.decode(str));
-
-String welcomeToJson(MovieModel data) => json.encode(data.toJson());
-
 class MovieModel {
-  int rank;
+  double rank;
   String title;
   String description;
   String image;
@@ -34,18 +28,25 @@ class MovieModel {
   });
 
   factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
-        rank: json["rank"],
-        title: json["title"],
-        description: json["description"],
-        image: json["image"],
-        bigImage: json["big_image"],
-        genre: List<String>.from(json["genre"].map((x) => x)),
-        thumbnail: json["thumbnail"],
-        rating: json["rating"],
-        id: json["id"],
-        year: json["year"],
-        imdbid: json["imdbid"],
-        imdbLink: json["imdb_link"],
+        rank: (json["rank"] is int)
+            ? json["rank"]
+            : int.tryParse(json["rank"].toString()) ?? 0,
+        title: json["title"] ?? "Unknown",
+        description: json["description"] ?? "No description available",
+        image: json["image"] ?? "",
+        bigImage: json["big_image"] ?? "",
+        genre: (json["genre"] as List<dynamic>?)
+                ?.map((x) => x.toString())
+                .toList() ??
+            [],
+        thumbnail: json["thumbnail"] ?? "",
+        rating: json["rating"] ?? "N/A",
+        id: json["id"] ?? "",
+        year: (json["year"] is int)
+            ? json["year"]
+            : int.tryParse(json["year"].toString()) ?? 0,
+        imdbid: json["imdbid"] ?? "",
+        imdbLink: json["imdb_link"] ?? "",
       );
 
   Map<String, dynamic> toJson() => {

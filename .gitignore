@@ -41,7 +41,12 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+android/java_pid19111.hprof
+android/java_pid19111.hprof
+android/java_pid19111.hprof
+
+# Ingore Api Key 
+.env
+
+# ingore aaets
 /assets/
-android/java_pid19111.hprof
-android/java_pid19111.hprof
-android/java_pid19111.hprof
