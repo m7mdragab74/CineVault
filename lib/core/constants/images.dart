@@ -7,4 +7,5 @@ class AppImages {
   static const String codeVerification = '$_base/mobileEncryptionCuate.png';
   static const String homeHead = '$_base/home.png';
   static const String test1 = '$_base/test1.png';
+  static const String play = '$_base/logo/pLay.png';
 }
