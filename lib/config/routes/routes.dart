@@ -11,6 +11,7 @@ class AppRoutes {
   //home
   static const String home = '/home';
   static const String watchList = '/watchList';
+  static const String homeDetails = '/homeDetails';
   //profile
   static const String profile = '/profile';
   //search

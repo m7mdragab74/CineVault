@@ -4,6 +4,7 @@ import 'package:cine_vault/features/authentication/forget_password/presentation/
 import 'package:cine_vault/features/authentication/forget_password/presentation/views/find_your_account.dart';
 import 'package:cine_vault/features/authentication/login/presentation/views/login_view.dart';
 import 'package:cine_vault/features/authentication/register/presentation/views/register_view.dart';
+import 'package:cine_vault/features/home/presentation/views/home_details_view.dart';
 import 'package:cine_vault/features/home/presentation/views/home_view.dart';
 import 'package:cine_vault/features/home/presentation/views/watch_list_view.dart';
 import 'package:cine_vault/features/onBoarding/presentation/views/onboarding_view.dart';
@@ -80,6 +81,12 @@ class AppRouter {
         path: AppRoutes.search,
         builder: (context, state) {
           return const SearchView();
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.homeDetails,
+        builder: (context, state) {
+          return const HomeDetailsView();
         },
       ),
     ],

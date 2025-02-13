@@ -1,9 +1,11 @@
 import 'dart:math';
 
+import 'package:cine_vault/config/routes/routes.dart';
 import 'package:cine_vault/core/constants/images.dart';
 import 'package:cine_vault/features/home/presentation/widgets/movie_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomPageView extends StatefulWidget {
   const CustomPageView({super.key});
@@ -53,6 +55,9 @@ class _CustomPageViewState extends State<CustomPageView> {
             child: Opacity(
               opacity: opacity,
               child: MovieCardWidget(
+                onTap: () {
+                  context.push(AppRoutes.homeDetails);
+                },
                 imagePath: images[index],
               ),
             ),

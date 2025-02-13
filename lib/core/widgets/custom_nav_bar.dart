@@ -66,7 +66,7 @@ class CustomNavBar extends StatelessWidget {
             color: isSelected ? Colors.white : AppColors.bgColor,
             size: 24.sp,
           ),
-          SizedBox(height: 4.h), // Better spacing
+          SizedBox(height: 4.h),
           Text(
             label,
             style: TextStyle(
