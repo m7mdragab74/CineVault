@@ -16,13 +16,28 @@ class MovieCardWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 25.w),
       child: GestureDetector(
         onTap: onTap,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20.r),
-          child: Stack(
-            children: [
-              Image.asset(imagePath, fit: BoxFit.cover),
-            ],
-          ),
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20.r),
+              child: Stack(
+                children: [
+                  Image.asset(imagePath, fit: BoxFit.cover),
+                ],
+              ),
+            ),
+            Positioned(
+              top: 8.h,
+              right: 8.w,
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.bookmark_border_outlined,
+                  size: 30.sp,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
