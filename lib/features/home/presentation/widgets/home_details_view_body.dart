@@ -68,7 +68,7 @@ class HomeDetailsViewBody extends StatelessWidget {
               SizedBox(height: 10.h),
               HomeDetailsTextWidget(
                 text:
-                    'Eight thieves take hostages and lock themselves in the Royal Mint of Spain as a criminal mastermind manipulates the police to carry out his plan.',
+                    'Eight thieves take hostages and lock themselves in the Royal Mint of Spain as a criminal mastermind manipulates the police to carry out his plan',
                 textAlign: TextAlign.left,
               ),
             ],
