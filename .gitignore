@@ -10,6 +10,10 @@
 .svn/
 migrate_working_dir/
 
+*.json
+*.pem
+*.p12
+
 # IntelliJ related
 *.iml
 *.ipr
@@ -50,6 +54,4 @@ android/java_pid19111.hprof
 
 # ingore aaets
 /assets/
-/cinevault-d079b-firebase-adminsdk-fbsvc-fb7d391f70/
-
 cinevault-d079b-firebase-adminsdk-*.json
