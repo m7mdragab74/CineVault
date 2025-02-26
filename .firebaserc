@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "cinevault-d079b"
-  }
+    "default": "cinevault-d079b",
+    "dev": "cinevault-d079b"
+  },
+  "targets": {},
+  "etags": {}
 }
