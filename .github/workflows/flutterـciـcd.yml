@@ -49,6 +49,10 @@ jobs:
       - name: Install Firebase CLI
         run: curl -sL https://firebase.tools | bash
 
+      - name: Initialize Firebase
+        run: |
+          echo '{ "projects": { "default": "${{ secrets.FIREBASE_PROJECT_ID }}" } }' > .firebaserc
+
       - name: Authenticate Firebase CLI
         run: |
           export GOOGLE_APPLICATION_CREDENTIALS="$HOME/firebase-service-account.json"
