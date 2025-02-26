@@ -50,6 +50,5 @@ android/java_pid19111.hprof
 android/java_pid19111.hprof
 
 # Ingore Api Key 
-.env
 
 cinevault-d079b-firebase-adminsdk-*.json
